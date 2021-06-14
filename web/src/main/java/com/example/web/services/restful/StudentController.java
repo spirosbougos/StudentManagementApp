@@ -1,15 +1,11 @@
 package com.example.web.services.restful;
 
-import com.example.services.ejbs.Accounts;
-import com.example.services.ejbs.Phones;
 import com.example.services.ejbs.Students;
-import com.example.services.entities.Account;
-import com.example.services.entities.Phone;
 import com.example.services.entities.Student;
+
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 
@@ -18,7 +14,6 @@ public class StudentController {
 
     @EJB
     private Students students;
-
 
     @POST
     @Path("/createStudent")
@@ -32,7 +27,17 @@ public class StudentController {
     @DELETE
     @Path("/deleteStudent/{id}")
     public String deleteStudent(@PathParam("id") int id) {
-        if(students.delete(id)) {
+        if (students.delete(id)) {
+            return "Student successfully deleted";
+        } else {
+            return "Can't access student with id: " + id;
+        }
+    }
+
+    @DELETE
+    @Path("/deleteStudent2/{id}")
+    public String deleteStudentWithException(@PathParam("id") int id) {
+        if (students.deleteWithException(id)) {
             return "Student successfully deleted";
         } else {
             return "Can't access student with id: " + id;

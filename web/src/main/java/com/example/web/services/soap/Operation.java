@@ -32,7 +32,7 @@ public class Operation implements OperationInterface {
 
     @Override
     public String deleteStudent(int id) {
-        if(students.delete(id) == true) {
+        if(students.delete(id)) {
             return "Student successfully deleted";
         } else {
             return "Can't access student with id: " + id;

@@ -1,19 +1,24 @@
 package com.example.services.ejbs;
 
 import com.example.services.entities.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.ws.rs.core.Response;
 import java.util.List;
+
 
 @Stateless
 public class Students {
 
     @PersistenceContext(unitName = "primary")
     private EntityManager entityManager;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Students.class);
+
 
     public void add(Student student) {
         if (entityManager.contains(student)) {
@@ -29,6 +34,17 @@ public class Students {
             entityManager.remove(student);
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public boolean deleteWithException(int id){
+        Student student = entityManager.find(Student.class, id);
+        try {
+            entityManager.remove(student);
+            return true;
+        }catch (Exception e){
+            LOGGER.error("Unexpected Error.");
             return false;
         }
     }

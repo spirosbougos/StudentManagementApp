@@ -1,6 +1,6 @@
-com\example\web\ws\WebServiceInterface.class
-com\example\web\controllers\StudentController.class
-com\example\web\App.class
-com\example\web\controllers\AccountController.class
-com\example\web\controllers\PhoneController.class
-com\example\web\ws\WebService.class
+com\example\web\services\restful\PhoneController.class
+com\example\web\services\soap\Operation.class
+com\example\web\services\soap\OperationInterface.class
+com\example\web\services\App.class
+com\example\web\services\restful\StudentController.class
+com\example\web\services\restful\AccountController.class
