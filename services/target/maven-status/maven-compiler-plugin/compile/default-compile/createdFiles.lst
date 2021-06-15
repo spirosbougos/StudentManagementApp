@@ -1,8 +1,0 @@
-com\example\services\ejbs\Accounts.class
-com\example\services\entities\Address.class
-com\example\services\entities\Status.class
-com\example\services\ejbs\Phones.class
-com\example\services\ejbs\Students.class
-com\example\services\entities\Account.class
-com\example\services\entities\Student.class
-com\example\services\entities\Phone.class
