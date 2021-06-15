@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>services</artifactId>
     <packaging>ejb</packaging>
-
+    
     <parent>
         <artifactId>StudentManagementApp</artifactId>
         <groupId>org.example</groupId>
